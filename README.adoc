@@ -1,0 +1,24 @@
+Jenkins pipeline job repository
+===============================
+
+This repository contains the CI-RT scheduler //Jenkinsfile//. It is
+the base Jenkinsfile.
+
+Jenkins global configuration
+----------------------------
+
+The ci-rt libs needs to be specified in Jenkins global
+configuration:
+
+image:/images/configure_libs.png[]
+
+
+Jenkins job setup
+-----------------
+  * Create a new pipeline job.
+  * Configure job to use "Pipeline script from SCM"
+  * Configure SCM to use git.
+  * Add git URL
+  * Adapt "Script Path" to Jenkinsfile in charge from this repository
+  * Save configuration
+
