@@ -1,6 +1,6 @@
 #!/usr/bin/groovy
 /* -*- mode: groovy; -*-
- * CI-RT library kernel build test
+ * CI-RT scheduler Jenkinsfile
  */
 
 @Library('CI-RT@master') _
