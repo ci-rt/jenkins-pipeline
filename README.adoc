@@ -26,7 +26,7 @@ image:/images/db-credentials.png[]
 
 Jenkins job setup
 -----------------
-  * Create a new pipeline job.
+  * Create a new pipeline job with the name "cirt-scheduler"
   * Configure job to use "Pipeline script from SCM"
   * Configure SCM to use git.
   * Add git URL
