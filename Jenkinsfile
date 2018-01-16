@@ -3,8 +3,6 @@
  * CI-RT scheduler Jenkinsfile
  */
 
-@Library('CI-RT@master') _
-
 pipeline {
 	agent any;
 
@@ -20,10 +18,17 @@ pipeline {
 		string(defaultValue: "https://github.com/ci-rt/test-description.git", description: '', name: 'TESTDESCRIPTION_REPO')
 		string(defaultValue: "master", description: '', name: 'GUI_TESTDESCR_BRANCH')
 		string(defaultValue: 'localhost:5432', description: 'Hostname of database', name: 'GUI_DB_HOSTNAME')
+		string(defaultValue: 'master', description: 'Version of CI-RT Jenkins lib to use', name: 'GUI_CIRT_LIB_VERSION')
 		string(defaultValue: '', description: '', name: 'GUI_COMMIT')
 	}
 
 	stages {
+		stage('load CI-RT library') {
+			steps {
+				library "CI-RT@${params.GUI_CIRT_LIB_VERSION}"
+			}
+		}
+
 		stage('inputcheck') {
 			steps {
 				CIRTinputcheck(params)
