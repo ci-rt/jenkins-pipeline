@@ -19,6 +19,7 @@ pipeline {
 		string(defaultValue: "compileconf", description: '', name: 'STASH_COMPILECONF')
 		string(defaultValue: "https://github.com/ci-rt/test-description.git", description: '', name: 'TESTDESCRIPTION_REPO')
 		string(defaultValue: "master", description: '', name: 'GUI_TESTDESCR_BRANCH')
+		string(defaultValue: 'localhost:5432', description: 'Hostname of database', name: 'GUI_DB_HOSTNAME')
 		string(defaultValue: '', description: '', name: 'GUI_COMMIT')
 	}
 
@@ -57,8 +58,17 @@ pipeline {
 		}
 
 		stage('collect and inform') {
+			environment {
+				DB_HOSTNAME = "${params.GUI_DB_HOSTNAME}";
+			}
 			steps {
 				echo "feed database"
+				withCredentials([[$class: 'UsernamePasswordMultiBinding',
+						  credentialsId: 'POSTGRES_CREDENTIALS',
+						  usernameVariable: 'DB_USER',
+						  passwordVariable: 'DB_PASS']]) {
+					feeddatabase(params)
+				}
 				echo "send email"
 			}
 		}

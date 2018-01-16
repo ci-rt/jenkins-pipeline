@@ -13,6 +13,17 @@ configuration:
 image:/images/configure_libs.png[]
 
 
+Jenkins credential for database
+-------------------------------
+
+For the credentials of the database, a global Jenkins credential with
+the ID "POSTGRES_CREDENTIALS" needs to be generated. Thus, the
+credentials are not available as plain text in source code of the
+library or log files:
+
+image:/images/db-credentials.png[]
+
+
 Jenkins job setup
 -----------------
   * Create a new pipeline job.
