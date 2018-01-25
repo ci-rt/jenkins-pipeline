@@ -21,7 +21,7 @@ the ID "POSTGRES_CREDENTIALS" needs to be generated. Thus, the
 credentials are not available as plain text in source code of the
 library or log files:
 
-image:/images/db-credentials.png[]
+image:/images/db_credentials.png[]
 
 
 Jenkins job setup
