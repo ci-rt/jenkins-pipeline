@@ -1,35 +1,5 @@
-Jenkins pipeline job repository
-===============================
+Important note
+==============
 
-This repository contains the CI-RT scheduler //Jenkinsfile//. It is
-the base Jenkinsfile.
-
-Jenkins global configuration
-----------------------------
-
-The ci-rt libs needs to be specified in Jenkins global
-configuration:
-
-image:/images/configure_libs.png[]
-
-
-Jenkins credential for database
--------------------------------
-
-For the credentials of the database, a global Jenkins credential with
-the ID "POSTGRES_CREDENTIALS" needs to be generated. Thus, the
-credentials are not available as plain text in source code of the
-library or log files:
-
-image:/images/db_credentials.png[]
-
-
-Jenkins job setup
------------------
-  * Create a new pipeline job with the name "cirt-scheduler"
-  * Configure job to use "Pipeline script from SCM"
-  * Configure SCM to use git.
-  * Add git URL
-  * Adapt "Script Path" to Jenkinsfile in charge from this repository
-  * Save configuration
-
+The functionality of CI-RT scheduler //Jenkinsfile// is now integrated
+in the https://github.com/ci-rt/jenkins-cirt-libs[jenkins-cirt-libs]
